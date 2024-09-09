@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethic Lens</title>
+    <style>
+        /* Native font stack */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1a1a1a; /* Dark background */
+        }
+
+        /* Dark color scheme and styling */
+        .box {
+            position: relative;
+            text-align: center;
+            width: 300px;
+            height: 150px;
+            background-color: #333; /* Dark grey box */
+            color: #f0f0f0; /* Light text color */
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+            animation: jump 2s infinite ease-in-out;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            color: #b3b3b3; /* Lighter text color */
+            margin-top: 10px;
+        }
+
+        /* Shadow under the box */
+        .shadow {
+            position: absolute;
+            top: 170px;
+            width: 200px;
+            height: 20px;
+            background: transparent;
+            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: shadowSize 2s infinite ease-in-out;
+        }
+
+        /* Animation for jumping */
+        @keyframes jump {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-40px);
+            }
+        }
+
+        /* Animation for shadow */
+        @keyframes shadowSize {
+            0%, 100% {
+                width: 200px;
+                opacity: 0.6;
+            }
+            50% {
+                width: 160px;
+                opacity: 0.3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Ethic Lens</h1>
+        <h2>coming soon</h2>
+        <div class="shadow"></div>
+    </div>
+</body>
+</html>
