@@ -1,87 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ethic Lens</title>
-    <style>
-        /* Native font stack */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #1a1a1a; /* Dark background */
-        }
-
-        /* Dark color scheme and styling */
-        .box {
-            position: relative;
-            text-align: center;
-            width: 300px;
-            height: 150px;
-            background-color: #333; /* Dark grey box */
-            color: #f0f0f0; /* Light text color */
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
-            animation: jump 2s infinite ease-in-out;
-        }
-
-        h1 {
-            font-size: 2em;
-            margin: 0;
-        }
-
-        h2 {
-            font-size: 1.2em;
-            color: #b3b3b3; /* Lighter text color */
-            margin-top: 10px;
-        }
-
-        /* Shadow under the box */
-        .shadow {
-            position: absolute;
-            top: 170px;
-            width: 200px;
-            height: 20px;
-            background: transparent;
-            box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: shadowSize 2s infinite ease-in-out;
-        }
-
-        /* Animation for jumping */
-        @keyframes jump {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-40px);
-            }
-        }
-
-        /* Animation for shadow */
-        @keyframes shadowSize {
-            0%, 100% {
-                width: 200px;
-                opacity: 0.6;
-            }
-            50% {
-                width: 160px;
-                opacity: 0.3;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="description" content="EthicLens: Ein interaktives Tool zur Bewertung der ethischen Nutzung von Bildern in der Wissenschaftskommunikation.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EthicLens | Personenbilder in der Forschungspraxis</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="box">
-        <h1>Ethic Lens</h1>
-        <h2>coming soon</h2>
-        <div class="shadow"></div>
+  <header id="main-header" aria-label="Hauptkopfbereich">
+    <h1>EthicLens • Personenbilder in der Forschungspraxis</h1>
+    <h2>Wie gehe ich als Wissenschaftler:in verantwortungsvoll mit personenbezogenen Bildern um?</h2>
+  </header>
+
+  <main>
+    <!-- Startbildschirm -->
+  <section id="start-screen" aria-labelledby="start-heading">
+    <div class="info-container">
+
+      <div class="info-text">
+        <p>
+    Dieses Tool unterstützt Sie dabei, ethisch fundierte Entscheidungen im Umgang mit personenbezogenen Bildern in der Wissenschaftskommunikation zu treffen. Der Schutz der Privatsphäre und der Würde der abgebildeten Personen stehen dabei im Mittelpunkt. Es wurde begleitend zu diesem Paper entwickelt:</p>
+  <div class="paper-div">Christ, K., Lobinger, K., Pfurtscheller, D., & Venema, R. (2024). Bildethik praktisch. Verantwortungsvoller Umgang mit personenbezogenem Bildmaterial in der Wissenschaftskommunikation. Communicatio Socialis, 57(4)</div>
+<p>Das Tool stellt Ihnen verschiedene Fragen, beispielsweise zur Notwendigkeit des Bilderzeigens, zu den gezeigten Personen und zum Publikationskontext. Nach jeder beantworteten Frage können Sie die jeweilige Empfehlung lesen. Nach Beantwortung aller Fragen erhalten Sie zudem eine Übersicht aller Fragen, Ihrer Antworten und der Empfehlungen, die zudem farblich nach Sensibilität markiert sind.</p>
+  </div>
+<div class="info-image">
+  <img src="ethiclens.webp" alt="A digital sketch in watercolor style depicting the concept of personal images in research. The scene shows abstract figures in soft, blended colors. Generated with DALL·E, 2024-09-16." title="A digital sketch in watercolor style depicting the concept of personal images in research. Generated with DALL·E, 2024-09-16.">
+</div>
+
+</div>
+  <p>Starten Sie jetzt mit der Beantwortung der Fragen, um Empfehlungen für Ihren spezifischen Kontext zu erhalten.
+ </p>
+  <button id="start-button" onclick="startQuiz()" aria-label="Quiz starten">Starten</button>
+</section>
+
+    <!-- In-Page Quiz-Container -->
+    <div id="quiz-container" style="display: none;" aria-labelledby="quiz-header">
+      <!-- Statusbereich am oberen Bildschirmrand -->
+      <div id="status-bar" role="status" aria-live="polite">
+        <div id="status-content">
+          <span id="ethiclens-title">EthicLens</span>
+          <span id="quiz-header" class="header-center">Frage 1 von 12</span>
+          <button id="cancel-button" onclick="goToStartScreen()" aria-label="Quiz abbrechen und zum Startbildschirm zurückkehren">Abbrechen</button>
+        </div>
+      </div>
+
+      <!-- Quiz Fragen und Antworten -->
+      <section class="quiz-section" aria-labelledby="quiz-question" role="region">
+        <p id="quiz-question">Ist das Zeigen der personenbezogenen Bilder notwendig?</p>
+
+        <div id="quiz-answers" class="quiz-flex-container" role="group" aria-labelledby="quiz-question">
+          <button class="quiz-button" aria-label="Antwort: Ja">Ja</button>
+          <button class="quiz-button" aria-label="Antwort: Nein">Nein</button>
+        </div>
+
+        <!-- Zusatzinformationen -->
+        <div id="quiz-info" aria-label="Zusatzinformation" role="note">
+          <p>Als "personenbezogene Bilder" verstehen wir Bilder, die Personen identifizierbar machen...</p>
+        </div>
+      </section>
+
+      <!-- Feedback Modal -->
+      <div id="feedback-modal" class="modal" style="display: none;" role="dialog" aria-labelledby="modal-feedback-text">
+        <div class="modal-content" role="document">
+          <p id="modal-feedback-text"></p>
+          <button id="next-question-button" onclick="goToNextQuestion()" aria-label="Nächste Frage">OK</button>
+        </div>
+      </div>
     </div>
+
+    <!-- Zusammenfassung am Ende des Quizzes -->
+    <section id="final-summery-statements" style="display: none;" aria-labelledby="final-summary-heading">
+      <h2 id="final-summary-heading">Zusammenfassung</h2>
+      <div id="summary-intro">
+        <p>Hier sind die Details Ihrer Antworten und die dazugehörigen Reflexionsempfehlungen:</p>
+      </div>
+      <div id="summary" role="list"></div>
+    </section>
+  </main>
+
+<footer aria-label="Fußzeile">
+  <p>EthicLens • Personenbilder in der Forschungspraxis</p>
+  <p>Bitte zitieren als: <p>
+
+  <p>[NOCH VORLÄUFIG] Pfurtscheller, D. / Christ, K. / Lobinger, K. (2024). EthicLens. Interaktives Impact-Assement-Tool für einen verantwortungsvoller Umgang mit personenbezogenem Bildmaterial in der Wissenschaftskommunikation. Online-Tool. https://ethiclens.github.io/ DOI: <...>  </p>
+  
+  <!-- Lizenzangaben für Inhalte und Code -->
+  <p>Dieses Projekt ist auf <a href="https://github.com/ethiclens" target="_blank">GitHub</a> verfügbar. Die Inhalte dieser Website stehen unter der <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> Lizenz. Der Code dieser Website steht unter der <a href="https://opensource.org/licenses/MIT" target="_blank">MIT-Lizenz</a>.</p>
+
+
+  <!-- Impressum abgesetzt -->
+  <div id="impressum" class="impressum">
+    <p><strong>Impressum</strong></p>
+    <p>Verantwortlich für den Inhalt:<br>
+      Mag. Dr. Daniel Pfurtscheller<br>
+      Universität Innsbruck, Institut für Germanistik<br>
+      6020 Innsbruck, Österreich</p>
+
+    <p><strong>Haftung für Inhalte</strong><br>
+      Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden.</p>
+
+    <p><strong>Datenschutz</strong><br>
+      Auf dieser Website werden keine personenbezogenen Daten gesammelt. Es werden keine Cookies verwendet.</p>
+  </div>
+</footer>
+
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+
+
+
 </body>
+
 </html>
