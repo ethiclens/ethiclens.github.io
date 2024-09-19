@@ -1,5 +1,7 @@
 # EthicLens • Personenbilder in der Forschungspraxis
 
+[![DOI](https://zenodo.org/badge/854600584.svg)](https://zenodo.org/doi/10.5281/zenodo.13774360)
+
 EthicLens ist ein interaktives Tool zur Bewertung der ethischen Nutzung von personenbezogenen Bildern in der Wissenschaftskommunikation. Es unterstützt Wissenschaftler:innen dabei, fundierte Entscheidungen über den Einsatz von Personenbildern zu treffen und dabei die Privatsphäre und Würde der abgebildeten Personen zu wahren.
 
 ## Überblick
