@@ -51,5 +51,5 @@ Falls Sie das Projekt lokal ausführen möchten:
 
 Wenn Sie EthicLens in einer wissenschaftlichen Publikation verwenden möchten, zitieren Sie es bitte wie folgt:
 
-Pfurtscheller, D., Christ, K., Lobinger, K. (2024). EthicLens. Interaktives Impact-Assessment-Tool für einen verantwortungsvollen Umgang mit personenbezogenem Bildmaterial in der Wissenschaftskommunikation. Online-Tool. https://ethiclens.github.io DOI: 10.xxxx/zenodo.xxxxxxx
+Pfurtscheller, D., Christ, K., Lobinger, K. (2024). EthicLens. Interaktives Impact-Assessment-Tool für einen verantwortungsvollen Umgang mit personenbezogenem Bildmaterial in der Wissenschaftskommunikation. Online-Tool. DOI: 10.5281/zenodo.13774360.
 
